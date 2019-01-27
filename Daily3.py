@@ -30,19 +30,15 @@ class Node:
 def serialize(root):
     res = []
     res.append(root.val)
-    
         
-    if isinstance(root.left, Node):
-        res.append(serialize(root.left))
+    for i in range(2):
+        if i == 0 and isinstance(root.left, Node):
+            res.append(serialize(root.left))
+            continue
+        if i == 1 and isinstance(root.right, Node):
+            res.append(serialize(root.right)) 
+            continue
         
-    if (root.left == None):
-        res.append('null')
-            
-        
-    if isinstance(root.right, Node):
-        res.append(serialize(root.right)) 
-        
-    if root.right == None:
         res.append('null')
     
     return res
